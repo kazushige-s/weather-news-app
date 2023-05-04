@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
-import { Title } from "./components/Title";
-import { Form } from "./components/Form";
-import { Result } from "./components/Result";
+import { Title } from "src/components/Title";
+import { Form } from "src/components/Form";
+import { Result } from "src/components/Result";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +24,7 @@ export default function Home() {
     icon: "",
   });
 
-  const getWeather = (e:React.FormEvent<HTMLFormElement>) => {
+  const getWeather = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch(
       `https://api.weatherapi.com/v1/current.json?key=0da1ce55290a4a60ba523948230105&q=${city}&aqi=no`
