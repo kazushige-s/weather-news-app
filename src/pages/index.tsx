@@ -24,10 +24,10 @@ export default function Home() {
     icon: "",
   });
 
-  const getWeather = (e: any) => {
+  const getWeather = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch(
-      "https://api.weatherapi.com/v1/current.json?key=0da1ce55290a4a60ba523948230105&q=London&aqi=no"
+      `https://api.weatherapi.com/v1/current.json?key=0da1ce55290a4a60ba523948230105&q=${city}&aqi=no`
     )
       .then((res) => res.json())
       .then((data) =>
