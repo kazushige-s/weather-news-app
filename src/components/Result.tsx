@@ -12,22 +12,22 @@ type ResultsPropsType = {
 };
 
 export const Result = (props: ResultsPropsType) => {
-  const { results } = props;
+  const { country, cityName, temperature, conditionText, icon } = props.results;
   // console.log(props);
   return (
     <div>
-      {results.country && <div>{results.country}</div>}
-      {results.cityName && <div>{results.cityName}</div>}
-      {results.temperature && (
+      {country && <div>{country}</div>}
+      {cityName && <div>{cityName}</div>}
+      {temperature && (
         <div>
-          {results.temperature}
+          {temperature}
           <span>℃</span>
         </div>
       )}
-      {results.conditionText && (
+      {conditionText && (
         <div>
-          <img src={results.icon} alt="icon" />
-          <span>{results.conditionText}</span>
+          <img src={icon} alt="icon" />
+          <span>{conditionText}</span>
         </div>
       )}
     </div>
