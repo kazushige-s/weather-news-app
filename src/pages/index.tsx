@@ -39,11 +39,12 @@ export default function Home() {
           icon: data.current.condition.icon,
         })
       );
+    setCity("");
   };
   return (
     <div>
       <Title />
-      <Form setCity={setCity} getWeather={getWeather} />
+      <Form setCity={setCity} getWeather={getWeather} city={city} />
       <Result results={results} />
     </div>
   );
