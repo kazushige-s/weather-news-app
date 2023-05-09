@@ -14,7 +14,7 @@ export const Form = (props: FormPropsType) => {
         <input
           type="text"
           name="city"
-          placeholder="都市名"
+          placeholder="都市名を英語で入力"
           onChange={(e) => setCity(e.target.value)}
           value={city}
         />

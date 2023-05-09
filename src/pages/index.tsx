@@ -3,6 +3,7 @@ import { Title } from "src/components/Title";
 import { Form } from "src/components/Form";
 import { Result } from "src/components/Result";
 import { useState } from "react";
+import { Loading } from "src/components/Loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,9 +24,15 @@ export default function Home() {
     conditionText: "",
     icon: "",
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
   const getWeather = (e: React.FormEvent<HTMLFormElement>) => {
+    if (city === "") {
+      alert("都市名を英語で入力してください");
+      return;
+    }
     e.preventDefault();
+    setLoading(true);
     fetch(
       `https://api.weatherapi.com/v1/current.json?key=0da1ce55290a4a60ba523948230105&q=${city}&aqi=no`
     )
@@ -40,12 +47,13 @@ export default function Home() {
         })
       );
     setCity("");
+    setLoading(false);
   };
   return (
     <div>
       <Title />
       <Form setCity={setCity} getWeather={getWeather} city={city} />
-      <Result results={results} />
+      {loading ? <Loading /> : <Result results={results} />}
     </div>
   );
 }
